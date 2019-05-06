@@ -1,0 +1,39 @@
+#
+# Defines environment variables.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Ensure that a non-login, non-interactive shell has a defined environment.
+if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprofile"
+fi
+
+if [[ -s "$HOME/.zshenv.secret" ]]; then
+  source "$HOME/.zshenv.secret"
+fi
+
+
+export GOPATH=$HOME/go
+export ANDROID_HOME=$HOME/Library/Android/sdk
+
+export PATH="$GOPATH/bin:$PATH"
+export PATH="$HOME/.goenv/bin:$PATH"
+export PATH="/usr/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/opt/mysql/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
+export PATH=$HOME/Library/Android/sdk/tools:$PATH
+export PATH="$HOME/.ndenv/bin:$PATH"
+export PATH="$HOME/flutter/bin:$PATH"
+
+export EDITOR='vim'
+export VISUAL='vim'
+export PAGER='less'
+export GREP_OPTIONS='--color=auto' 
+
+export SWIFT_BUILD_DIR="$HOME/develop/library/swift-source-code/build/Ninja-DebugAssert/swift-macosx-x86_64"
+# https://teratail.com/questions/111371
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
