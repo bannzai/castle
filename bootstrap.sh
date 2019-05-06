@@ -16,7 +16,7 @@ fi
 
 homeshick clone bannzai/castle
 echo
-homeshick symlink castle
+homeshick symlink castle --skip
 echo
 
 # install homebrew
