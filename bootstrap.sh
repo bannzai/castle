@@ -13,7 +13,7 @@ fi
 homeshick clone bannzai/castle
 echo
 homeshick symlink castle
-
+echo
 
 # install homebrew
 if ! command -v brew > /dev/null 2>&1; then
