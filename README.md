@@ -16,6 +16,11 @@ $ homeshick clone bannzai/castle
 ```bash
 $ homeshick symlink castle
 ```
+When you already prepare any `dotfiles` or `rc` and so on.
+You get to resolve `--skip` option.
+```bash
+$ homeshick symlink castle --skip
+```
 
 # Bootstrap
 ```bash
