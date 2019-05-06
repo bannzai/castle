@@ -3,19 +3,6 @@ set -eu
 
 echo "GOGO!!! bootstrap"
 
-# install homeshick
-if ! command -v homeshick > /dev/null 2>&1; then
-    # https://github.com/andsens/homeshick/wiki/Installation
-    git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
-    echo
-    source $HOME/.homesick/repos/homeshick/homeshick.sh
-fi
-
-homeshick clone bannzai/castle
-echo
-homeshick symlink castle --skip
-echo
-
 # install homebrew
 if ! command -v brew > /dev/null 2>&1; then
     # Install homebrew: https://brew.sh/
@@ -25,6 +12,26 @@ if ! command -v brew > /dev/null 2>&1; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     echo
 fi
+
+# install homebrew prepare for homeshick
+if ! command -v git > /dev/null 2>&1; then
+  brew install git
+  echo
+fi
+
+# install homeshick
+if ! command -v homeshick > /dev/null 2>&1; then
+    # https://github.com/andsens/homeshick/wiki/Installation
+    git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
+    echo
+    source $HOME/.homesick/repos/homeshick/homeshick.sh
+fi
+
+# Using yes command, because question for symlink[y/N]?.
+# Using --skip command, because default option is not skipt when files already exists.
+yes | homeshick clone bannzai/castle --skip
+echo
+
 
 brew bundle
 echo
