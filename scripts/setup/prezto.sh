@@ -11,4 +11,3 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
 
-echo 'Let's set login shells. sudo vim /etc/shells \n And write for /usr/local/bin/zsh \n chsh -s /usr/local/bin/zsh'

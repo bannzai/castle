@@ -45,4 +45,5 @@ for file in $SCRIPTS; do
   wait $!
 done
 
+echo "Let's set login shells. sudo vim /etc/shells \n And write for /usr/local/bin/zsh \n chsh -s /usr/local/bin/zsh"
 echo "End bootstrap 🎉"
