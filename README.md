@@ -19,5 +19,5 @@ $ homeshick symlink castle
 
 # Bootstrap
 ```bash
-$ curl https://raw.githubusercontent.com/bannzai/castle/master/bootstrap.sh | bash
+$ curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/bannzai/castle/master/bootstrap.sh | bash
 ```
