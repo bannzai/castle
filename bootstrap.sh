@@ -3,6 +3,18 @@ set -eu
 
 echo "GOGO!!! bootstrap"
 
+# install homeshick
+if ! command -v homeshick > /dev/null 2>&1; then
+    # https://github.com/andsens/homeshick/wiki/Installation
+    git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
+    echo
+fi
+
+homeshick clone bannzai/castle
+echo
+homeshick symlink castle
+
+
 # install homebrew
 if ! command -v brew > /dev/null 2>&1; then
     # Install homebrew: https://brew.sh/
@@ -16,18 +28,7 @@ fi
 brew bundle
 echo
 
-# install homeshick
-if ! command -v homeshick > /dev/null 2>&1; then
-    # https://github.com/andsens/homeshick/wiki/Installation
-    git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
-    echo
-fi
-
-homeshick clone bannzai/castle
-echo
-homeshick symlink castle
 homeshick cd castle
-
 SETUP_SCRIPT_DIR="$PWD/sourcery"
 SCRIPTS=`find "$SETUP_SCRIPT_DIR" -name '*.sh' -type f`
 
