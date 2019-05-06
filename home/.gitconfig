@@ -1,0 +1,38 @@
+[core]
+	excludesfile = /Users/hiroseyuudai/.gitignore
+  editor = vim
+[alias]
+	today = log --since=midnight --oneline --author='hirose yudai' --no-merges
+	current-branch = rev-parse --abbrev-ref HEAD
+	gr = log --oneline --graph
+	c = commit
+	co = checkout
+	cp = cherry-pick
+	b = branch
+	cb = rev-parse --abbrev-ref HEAD
+	r = rebase
+	m = merge --no-ff
+	p = push
+	s = status
+	d = diff
+  st = stash
+  tp = rev-parse --verify HEAD
+  # cleanup = "!git branch -r --merged | grep -v master | sed 's/origin\//:/' | xargs -n 1 git push origin"
+  # for hub
+  pr = !hub browse -- compare/$(git symbolic-ref --short HEAD)'?'expand=1'&'body=$(cat ./.github/PULL_REQUEST_TEMPLATE.md | perl -pe 'encode_utf8' | perl -pe 's/([^ 0-9a-zA-Z])/\"%\".uc(unpack(\"H2\",$1))/eg' | perl -pe 's/ /+/g')
+  
+[hub]
+  protocol = ssh
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
+[user]
+	name = bannzai
+	email = kingkong999yhirose@gmail.com
+[merge]
+	conflictstyle = diff3
+[commit]
+	template = /Users/hiroseyuudai/develop/oss/emoji_template/commit_template
