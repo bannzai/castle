@@ -1,0 +1,9 @@
+#
+# Executes evals 
+#
+
+eval "$(goenv init -)"
+eval "$(rbenv init -)"
+eval "$(hub alias -s)"
+eval "$(ndenv init -)"
+eval "$(direnv hook zsh)"

@@ -1,0 +1,1 @@
+/Users/hiroseyuudai/.zprezto/runcoms/zshrc
