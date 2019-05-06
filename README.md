@@ -16,3 +16,8 @@ $ homeshick clone bannzai/castle
 ```bash
 $ homeshick symlink castle
 ```
+
+# Bootstrap
+```bash
+$ curl https://raw.githubusercontent.com/bannzai/castle/master/bootstrap.sh | bash
+```
