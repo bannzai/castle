@@ -9,7 +9,9 @@ if ! command -v homeshick > /dev/null 2>&1; then
     git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
     echo
     printf '\nsource "$HOME/.homesick/repos/homeshick/homeshick.sh"' >> $HOME/.bashrc
+    echo
     source $HOME/.bashrc
+    echo
 fi
 
 homeshick clone bannzai/castle
