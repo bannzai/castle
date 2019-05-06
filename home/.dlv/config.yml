@@ -1,0 +1,16 @@
+# Configuration file for the delve debugger.
+
+# This is the default configuration file. Available options are provided, but disabled.
+# Delete the leading hash mark to enable an item.
+
+# Provided aliases will be added to the default aliases for a given command.
+aliases:
+  # command: ["alias1", "alias2"]
+
+# Define sources path substitution rules. Can be used to rewrite a source path stored
+# in program's debug information, if the sources were moved to a different place
+# between compilation and debugging.
+# Note that substitution rules will not be used for paths passed to "break" and "trace"
+# commands.
+substitute-path:
+  # - {from: path, to: path}
