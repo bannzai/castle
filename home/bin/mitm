@@ -1,0 +1,14 @@
+#!/bin/sh
+sudo networksetup -setwebproxy Wi-Fi localhost 8081
+sudo networksetup -setsecurewebproxy Wi-Fi localhost 8081
+sudo networksetup -setwebproxystate Wi-Fi on
+sudo networksetup -setsecurewebproxystate Wi-Fi on
+if [ "$1" ]
+then
+    mitmproxy --anticache -s $1 -p 8081
+else
+    mitmproxy --anticache -p 8081
+fi
+
+sudo networksetup -setwebproxystate Wi-Fi off
+sudo networksetup -setsecurewebproxystate Wi-Fi off
