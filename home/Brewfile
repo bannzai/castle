@@ -95,10 +95,12 @@ cask "abstract"
 cask "dash"
 cask "cmd-eikana"
 
-mas "Xcode"
-mas "Alfred"
-mas "Wunderlist"
-mas "Slack"
-mas "Skype"
-mas "LINE"
+mas "Xcode", id: 497799835
+mas "Alfred", id: 405843582
+mas "Wunderlist", id: 410628904
+mas "Slack", id: 803453959
+mas "Skype", id: 909323225
+mas "LINE", id: 539883307
+mas "Keynote", id: 409183694
+
 
