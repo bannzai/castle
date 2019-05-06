@@ -10,8 +10,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-if [[ -d "${ZDOTDIR:-$HOME}/.zsh.d" ]]; then
-  for f in ${ZDOTDIR:-$HOME}/.zsh.d/*rc; do
+if [[ -d "$HOME/.zsh.d" ]]; then
+  for f in $HOME/.zsh.d/*rc; do
     [ -e "$f" ] && source $f || echo "$f do not exist"
   done
 fi
