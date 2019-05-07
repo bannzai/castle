@@ -37,7 +37,7 @@ brew bundle
 echo
 
 homeshick cd castle
-SETUP_SCRIPT_DIR="$PWD/sourcery"
+SETUP_SCRIPT_DIR="$PWD/scripts/setup/"
 SCRIPTS=`find "$SETUP_SCRIPT_DIR" -name '*.sh' -type f`
 
 for file in $SCRIPTS; do
