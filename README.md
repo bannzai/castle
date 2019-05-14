@@ -1,4 +1,4 @@
-# Castlne
+# Castle
 bannzai's castle. :japanese_castle:
 
 # Require
