@@ -1,9 +1,0 @@
-#
-# zsh settings
-#
-
-# escaping git reset --hard @^ ^^^^^
-setopt nonomatch
-
-HISTSIZE=50000
-SAVEHIST=100000

@@ -1,7 +1,0 @@
-#
-# Variables for user customize 
-#
-
-# homeshick
-fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
