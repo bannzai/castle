@@ -73,6 +73,7 @@ brew "zsh"
 brew "zsh-completions"
 brew 'homeshick'
 brew 'fzf'
+brew 'ghq'
 
 cask "google-chrome"
 cask "sketch"
