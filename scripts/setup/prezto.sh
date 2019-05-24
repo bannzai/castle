@@ -1,13 +1,8 @@
 #!/bin/bash
 set -eu
 
-# prezto 
-# https://github.com/bannzai/castle/tree/master/home/.zprezto 
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-echo
-
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+PREZTO_DIR="/.homesick/repos/castle/home/.zprezto"
+for rcfile in $PREZTO_DIR/runcoms/*; do
+  ln -s "$rcfile" "$PREZTO_DIR/.${rcfile:t}"
 done
 
