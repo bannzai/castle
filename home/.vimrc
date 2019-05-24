@@ -49,7 +49,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'JamshedVesuna/vim-markdown-preview'
 
 " go {
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'SirVer/ultisnips'
 
