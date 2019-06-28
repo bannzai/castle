@@ -45,5 +45,16 @@ for file in $SCRIPTS; do
   wait $!
 done
 
+# Install powerline font
+git clone https://github.com/powerline/fonts.git --depth=1
+echo
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
+
+
 echo "Let's set login shells. sudo vim /etc/shells \n And write for /usr/local/bin/zsh \n chsh -s /usr/local/bin/zsh"
+echo "And you should set zhistory. (If you use Dropbox. Copy and paste to $HOME/ named .zhistory. )"
+echo "Next you should set terminal.app settings for design and default font to use [Source Code Pro Bold for Powerline 12pt]"
 echo "End bootstrap 🎉"
