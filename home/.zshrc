@@ -77,6 +77,7 @@ alias f=fzf
 # Settings
 alias edit.mycnf="nvim /usr/local/etc/my.cnf"
 alias vimrc="nvim ~/.vimrc"
+alias nvimrc="nvim ~/.config/nvim/init.vim"
 
 # ShortCuts
 alias 0="cd $HOME/develop/product/"
@@ -89,6 +90,14 @@ eval "$(goenv init -)"
 eval "$(rbenv init -)"
 eval "$(hub alias -s)"
 eval "$(direnv hook zsh)"
+
+# PATH
+export GOPATH=$HOME/go
+
+export PATH="$HOME/usr/local/bin:$PATH"
+export PATH="$HOME/usr/bin:$PATH"
+export PATH=$GOPATH/bin:$PATH
+export PATH="$HOME/.local/bin/:$PATH"
 
 #
 # Functions 
