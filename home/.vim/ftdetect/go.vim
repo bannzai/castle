@@ -5,6 +5,8 @@ autocmd FileType go nnoremap <Leader>t :GoTest<CR>
 nnoremap <leader>n :cnext<CR>
 nnoremap <leader>p :cprevious<CR>
 nnoremap <leader>c :cclose<CR>
+let g:go_def_mode = 'godef'
+
 
 if executable('go-langserver')
   augroup LspGo
@@ -17,7 +19,7 @@ if executable('go-langserver')
     " omnifunc
     "autocmd FileType go setlocal omnifunc=lsp#complete
     " map
-    au FileType go nnoremap <buffer><silent> gd :<C-u>LspDefinition<CR>
+    " au FileType go nnoremap <buffer><silent> gd :<C-u>LspDefinition<CR>
     au FileType go nnoremap <buffer><silent> gD :<C-u>LspReferences<CR>
     au FileType go nnoremap <buffer><silent> gs :<C-u>LspDocumentSymbol<CR>
     au FileType go nnoremap <buffer><silent> gS :<C-u>LspWorkspaceSymbol<CR>
