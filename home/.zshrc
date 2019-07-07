@@ -92,6 +92,7 @@ eval "$(goenv init -)"
 eval "$(rbenv init -)"
 eval "$(hub alias -s)"
 eval "$(direnv hook zsh)"
+eval "$(nodenv init -)"
 
 # PATH
 export GOPATH=$HOME/go
