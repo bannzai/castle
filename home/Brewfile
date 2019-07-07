@@ -50,6 +50,7 @@ brew "ncurses"
 brew "neovim"
 brew "ninja", link: false
 brew "nodenv"
+brew "yarn"
 brew "openblas"
 brew "tbb"
 brew "opencv"
