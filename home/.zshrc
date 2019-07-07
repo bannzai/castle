@@ -81,6 +81,8 @@ alias nvimrc="nvim ~/.config/nvim/init.vim"
 
 # ShortCuts
 alias 0="cd $HOME/develop/product/"
+alias 1="cd $HOME/.ghq/github.com"
+alias oss="cd $HOME/develop/oss"
 
 # NeoVim
 alias config="nvim $HOME/.config/nvim/init.vim $HOME/.zshrc"
