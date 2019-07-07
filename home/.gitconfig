@@ -1,6 +1,6 @@
 [core]
 	excludesfile = /Users/hiroseyuudai/.gitignore
-  editor = vim
+  editor = nvim
 [alias]
 	today = log --since=midnight --oneline --author='hirose yudai' --no-merges
 	current-branch = rev-parse --abbrev-ref HEAD
