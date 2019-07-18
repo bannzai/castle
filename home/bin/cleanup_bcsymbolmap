@@ -1,0 +1,131 @@
+#!/bin/bash
+
+function print_usage() {
+  echo "Usage: $0 [Options]"
+  echo "Options:"
+  echo "    -h, --help                Display usage"
+  echo "    -p, --project-directory   Directory containing Carthage project"
+  echo "    -f, --force               Omit confirmation"
+  exit 1
+}
+
+function list_expected_bcsymbolmap() {
+  framework_binaries=`find ${PROJECT_DIRECTORY}/Carthage/Build/**/*.framework -type f -perm -111`
+
+  for module in $framework_binaries; do
+    if [[ ${module} =~ ^${PROJECT_DIRECTORY}/Carthage/Build/.+/(.+)\.framework/.+$ ]]; then
+      module_name=${BASH_REMATCH[1]}
+    fi
+    xcrun dwarfdump --uuid $module | awk -v m="$module_name" '{print m "," $2".bcsymbolmap"}'
+  done
+}
+
+function list_existing_bcsymbolmap() {
+  find ${PROJECT_DIRECTORY}/Carthage/Build/**/*.bcsymbolmap
+}
+
+function absolute_or_current_path() {
+  if [[ -d "$1" ]]; then
+    pushd "$1" > /dev/null 2>&1
+    pwd
+    popd > /dev/null 2>&1
+  else
+    echo $(pwd)
+  fi
+}
+
+function cleanup_unused_bcsymbolmap() {
+  if [ ! -d ${PROJECT_DIRECTORY}/Carthage/Build ]; then
+    echo "Carthage build directory is not found: '${PROJECT_DIRECTORY}/Carthage/Build'"
+    exit 1
+  fi
+
+  existing=`list_existing_bcsymbolmap`
+  expected=`list_expected_bcsymbolmap`
+  keeps=()
+  deletes=()
+
+  for existing_bcsymbolmap in $existing; do
+    found_module_name=""
+    for expected_bcsymbolmap in $expected; do
+      sep=(`echo $expected_bcsymbolmap | tr -s ',', ' '`)
+      module_name=${sep[0]}
+      bcsymbolmap=${sep[1]}
+      if [[ "$existing_bcsymbolmap" == *"$bcsymbolmap" ]]; then
+        found_module_name=$module_name
+        break
+      fi
+    done
+
+    printf "."
+
+    if [ -z "$found_module_name" ]; then
+      removes+=("$existing_bcsymbolmap")
+    else
+      keeps+=("${found_module_name},${existing_bcsymbolmap}")
+    fi
+  done
+
+  echo ""
+  echo ""
+  echo "Keeps:"
+  for keep in ${keeps[@]}; do
+    sep=(`echo $keep | tr -s ',', ' '`)
+    module_name=${sep[0]}
+    bcsymbolmap=${sep[1]}
+    echo "$bcsymbolmap used in $module_name"
+  done
+
+  if [ ${#removes[@]} -eq 0 ]; then
+    echo ""
+    echo "No remove files."
+    exit 0
+  fi
+
+  echo ""
+  echo "Removes:"
+  for remove in ${removes[@]}; do
+    echo "$remove"
+  done
+
+  if [ "$FORCE" == "false" ]; then
+    echo ""
+    read -p "Are you sure to remove? (y/n): " confirm
+
+    if [ "${confirm}" != "y" ]; then
+      exit 1
+    fi
+  fi
+
+  for remove in ${removes[@]}; do
+    rm $remove
+    echo "Removed: $remove"
+  done
+}
+
+
+for arg in "$@"; do
+  shift
+  case "$arg" in
+    "--help")               set -- "$@" "-h" ;;
+    "--project-directory")  set -- "$@" "-p" ;;
+    "--force")              set -- "$@" "-f" ;;
+    *)                      set -- "$@" "$arg"
+  esac
+done
+
+FORCE=false
+PROJECT_DIRECTORY=$(pwd)
+
+OPTIND=1
+while getopts "hp:f" opt
+do
+  case "$opt" in
+    "h") print_usage ;;
+    "p") PROJECT_DIRECTORY=`absolute_or_current_path "$OPTARG"` ;;
+    "f") FORCE=true ;;
+  esac
+done
+shift $(expr $OPTIND - 1)
+
+cleanup_unused_bcsymbolmap
