@@ -96,11 +96,15 @@ eval "$(nodenv init -)"
 
 # PATH
 export GOPATH=$HOME/go
+export MINT_PATH=$HOME/.mint
+export MINT_LINK_PATH=$HOME/.mint/bin
 
 export PATH="$HOME/usr/local/bin:$PATH"
 export PATH="$HOME/usr/bin:$PATH"
 export PATH=$GOPATH/bin:$PATH
 export PATH="$HOME/.local/bin/:$PATH"
+export PATH="$MINT_LINK_PATH:$PATH"
+
 
 #
 # Functions 
