@@ -11,12 +11,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-if [[ -d "$HOME/.zsh.d" ]]; then
-  for f in $HOME/.zsh.d/*rc; do
-    [ -e "$f" ] && source $f || echo "$f do not exist"
-  done
-fi
-
 # homeshick
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
