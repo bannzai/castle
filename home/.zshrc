@@ -54,7 +54,6 @@ alias gg="git grep"
 alias gcb="git rev-parse --abbrev-ref HEAD" # current branch
 alias gp="gcb | xargs git push origin"
 alias gpf="gcb | xargs git push origin --force-with-lease"
-alias git=hub
 
 # Ruby
 alias be='bundle exec'
