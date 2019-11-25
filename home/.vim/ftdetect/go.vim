@@ -5,7 +5,7 @@ autocmd FileType go nnoremap <Leader>t :GoTest<CR>
 nnoremap <leader>n :cnext<CR>
 nnoremap <leader>p :cprevious<CR>
 nnoremap <leader>c :cclose<CR>
-let g:go_def_mode = 'godef'
+" let g:go_def_mode = 'godef'
 
 
 if executable('go-langserver')

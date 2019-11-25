@@ -1,5 +1,4 @@
 # VSCode
-debug
 .vscode
 
 # Xcode (from gitignore.io)
@@ -20,6 +19,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 **/*.xcscmblueprint
+xcuserdata/
 
 # CocoaPod
 Pods/*
@@ -34,3 +34,5 @@ tags
 
 # secret
 *.secret
+.local
+.envrc

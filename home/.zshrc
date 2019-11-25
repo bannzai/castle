@@ -75,10 +75,16 @@ alias nvimrc="nvim ~/.config/nvim/init.vim"
 # ShortCuts
 alias 0="cd $HOME/develop/product/"
 alias 1="cd $HOME/.ghq/github.com"
+alias 2="hub pr show"
 alias oss="cd $HOME/develop/oss"
 
 # NeoVim
 alias config="nvim $HOME/.config/nvim/init.vim $HOME/.zshrc"
+
+## LLVM
+alias llvm=llvm@7
+export PATH="$PATH:`brew --prefix llvm@7`/bin"
+
 
 # eval
 eval "$(goenv init -)"
@@ -104,3 +110,8 @@ export PATH="$MINT_LINK_PATH:$PATH"
 #
 
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+
+# https://github.com/rivo/tview/issues/267#issuecomment-500226870
+export LC_CTYPE="en_US.UTF-8"
+
+source ~/.zshrc.local

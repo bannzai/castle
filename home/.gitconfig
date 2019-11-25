@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /Users/hiroseyuudai/.gitignore
+	excludesfile = ~/.gitignore
   editor = nvim
 	commentchar = auto
 [alias]
@@ -7,7 +7,8 @@
 	current-branch = rev-parse --abbrev-ref HEAD
 	gr = log --oneline --graph
 	c = commit
-	co = checkout
+	sw = switch
+  co = checkout
 	cp = cherry-pick
 	b = branch
 	cb = rev-parse --abbrev-ref HEAD
@@ -36,4 +37,4 @@
 [merge]
 	conflictstyle = diff3
 [commit]
-	template = /Users/hiroseyuudai/develop/oss/emoji_template/commit_template
+  template = ~/.ghq/github.com/bannzai/commit_template/commit_template
