@@ -92,9 +92,9 @@ cask "vimr"
 cask "abstract"
 cask "dash"
 cask "cmd-eikana"
+cask "Alfred"
 
 mas "Xcode", id: 497799835
-mas "Alfred", id: 405843582
 mas "Wunderlist", id: 410628904
 mas "Slack", id: 803453959
 mas "Skype", id: 909323225
