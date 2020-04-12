@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 set -eu
 
 PREZTO_DIR="/.homesick/repos/castle/home/.zprezto"
