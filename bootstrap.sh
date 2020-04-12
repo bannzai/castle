@@ -33,8 +33,11 @@ yes | homeshick clone bannzai/castle --skip
 echo
 
 
+# For already installed applications
+set +e
 brew bundle
 echo
+set -e
 
 homeshick cd castle
 SETUP_SCRIPT_DIR="$PWD/scripts/setup/"
