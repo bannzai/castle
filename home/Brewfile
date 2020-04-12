@@ -93,6 +93,7 @@ cask "abstract"
 cask "dash"
 cask "cmd-eikana"
 cask "Alfred"
+cask "karabiner-elements"
 
 mas "Xcode", id: 497799835
 mas "Wunderlist", id: 410628904
