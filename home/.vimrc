@@ -60,10 +60,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " rails
 Plug 'scrooloose/syntastic'
 
-
-" typescript
-Plug 'leafgarland/typescript-vim'
-
 call plug#end()
 " } VimPlug 
 
