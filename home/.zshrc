@@ -87,7 +87,6 @@ export PATH="$PATH:`brew --prefix llvm@7`/bin"
 
 
 # eval
-eval "$(goenv init -)"
 eval "$(rbenv init -)"
 eval "$(hub alias -s)"
 eval "$(direnv hook zsh)"

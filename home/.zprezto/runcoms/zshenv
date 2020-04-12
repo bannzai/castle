@@ -19,7 +19,6 @@ export GOPATH=$HOME/go
 export ANDROID_HOME=$HOME/Library/Android/sdk
 
 export PATH="$GOPATH/bin:$PATH"
-export PATH="$HOME/.goenv/bin:$PATH"
 export PATH="/usr/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/mysql/bin:$PATH"
