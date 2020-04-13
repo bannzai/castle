@@ -11,7 +11,7 @@ for rcfile in $PREZTO_DIR/runcoms/^README.md(.N); do
   mv "$HOME/.${rcfile:t}" "$HOME/.${rcfile:t}.bk"
   set -e
   echo "ln -s $rcfile for $HOME/.${rcfile:t}"
-  ln -s $rcfile "$PREZTO_DIR/.${rcfile:t}" 
+  ln -s $rcfile "$HOME/.${rcfile:t}" 
 done
 echo "end prezto setup"
 
