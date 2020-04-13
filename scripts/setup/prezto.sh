@@ -6,7 +6,7 @@ setopt EXTENDED_GLOB
 PREZTO_DIR="$HOME/.homesick/repos/castle/home/.zprezto"
 ls $PREZTO_DIR
 for rcfile in $PREZTO_DIR/runcoms/^README.md(.N); do
-  echo "mv $HOME/${rcfile:t} $HOME/${rcfile:t}.bk"
+  echo "mv $HOME/.${rcfile:t} $HOME/.${rcfile:t}.bk"
   set +e
   mv "$HOME/.${rcfile:t}" "$HOME/.${rcfile:t}.bk"
   set -e
