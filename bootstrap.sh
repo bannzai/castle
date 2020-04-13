@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-echo "GOGO!!! bootstrap"
+echo "GOGO!!!! bootstrap"
 
 if !(type "xcode-select" > /dev/null 2>&1); then
     xcode-select --install
