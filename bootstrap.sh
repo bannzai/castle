@@ -3,7 +3,7 @@ set -eu
 
 echo "GOGO!!! bootstrap"
 
-if ! command -v brew > /dev/null 2>&1; then
+if ! command -v xcode-select > /dev/null 2>&1; then
     xcode-select --install
     echo
 fi
