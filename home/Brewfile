@@ -16,7 +16,7 @@ tap "neovim/neovim"
 
 brew "bitrise"
 brew "carthage"
-erew "chisel"
+brew "chisel"
 brew "cmake"
 brew "ctags"
 brew "direnv"
