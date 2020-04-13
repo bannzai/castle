@@ -3,12 +3,13 @@ set -eu
 
 echo "GOGO!!! bootstrap"
 
-# install homebrew
 if ! command -v brew > /dev/null 2>&1; then
-    # Install homebrew: https://brew.sh/
     xcode-select --install
     echo
-
+fi
+# install homebrew
+if ! command -v brew > /dev/null 2>&1; then
+    # Install homebrew: https://brew.sh/†
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     echo
 fi
