@@ -1,14 +1,50 @@
-#!/bin/sh
-sudo networksetup -setwebproxy Wi-Fi localhost 8081
-sudo networksetup -setsecurewebproxy Wi-Fi localhost 8081
-sudo networksetup -setwebproxystate Wi-Fi on
-sudo networksetup -setsecurewebproxystate Wi-Fi on
-if [ "$1" ]
-then
-    mitmproxy --anticache -s $1 -p 8081
-else
-    mitmproxy --anticache -p 8081
+#!/bin/bash
+set -eu
+
+usage() {
+cat << EOF >&2
+mitm is shortcut function for launch mitm server to localhost
+Usage:
+    $(basename $0) [<args>]
+Args:
+  -s|--service  service is a network protocol name. (e.g VPN, default is Wi-Fi
+  -h|--help     displaying help message
+EOF
+}
+
+run() {
+  sudo networksetup -setwebproxy $SERVICE_NAME localhost 8081
+  sudo networksetup -setsecurewebproxy $SERVICE_NAME localhost 8081
+  sudo networksetup -setwebproxystate $SERVICE_NAME on
+  sudo networksetup -setsecurewebproxystate $SERVICE_NAME on
+  mitmproxy --anticache -p 8081
+
+  sudo networksetup -setwebproxystate $SERVICE_NAME off
+  sudo networksetup -setsecurewebproxystate $SERVICE_NAME off
+}
+
+set +u
+SERVICE_NAME=${SERVICE_NAME:-"Wi-Fi"}
+set -u
+
+if [ $# -eq 0 ]; then
+  run
+  exit 0
 fi
 
-sudo networksetup -setwebproxystate Wi-Fi off
-sudo networksetup -setsecurewebproxystate Wi-Fi off
+while [ $# -ne 0 ]; do
+  case $1 in
+    -s|--service)
+      SERVICE_NAME=$2
+      shift 2
+      ;;
+    -h|--help)
+      usage
+      exit 1
+      ;;
+    *) 
+      ;;
+  esac
+done
+
+run
