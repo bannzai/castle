@@ -1,4 +1,4 @@
-
+source ~/.zshrc.local
 #
 # Executes commands at the start of an interactive session.
 #
@@ -113,4 +113,3 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 # https://github.com/rivo/tview/issues/267#issuecomment-500226870
 export LC_CTYPE="en_US.UTF-8"
 
-source ~/.zshrc.local
