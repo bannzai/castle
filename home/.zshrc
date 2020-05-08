@@ -116,3 +116,6 @@ export LC_CTYPE="en_US.UTF-8"
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 autoload -U compinit
 compinit -u
+
+## Neta
+alias soyo='echo -e "　 ∧,,∧\n （=・ω・）\n （,, ｕｕﾉ\n"'
