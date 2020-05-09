@@ -57,6 +57,16 @@ cd fonts
 cd ..
 rm -rf fonts
 
+echo 'Create develop/bannzai'
+mkdir ~/develop/bannzai
+cd ~/develop/bannzai
+cat <<EOF > .envrc
+export GIT_AUTHOR_EMAIL="kingkong999yhirose@gmail.com"
+export GIT_COMMITTER_EMAIL="kingkong999yhirose@gmail.com"
+export GIT_COMMITTER_NAME=bannzai
+export GIT_AUTHOR_NAME=bannzai
+EOF
+cd -
 
 echo "Let's set login shells. sudo vim /etc/shells \n And write for /usr/local/bin/zsh \n chsh -s /usr/local/bin/zsh"
 echo "And you should set zhistory. (If you use Dropbox. Copy and paste to $HOME/ named .zhistory. )"
