@@ -14,23 +14,23 @@ if !(type "brew" > /dev/null 2>&1); then
     echo
 fi
 
-# install homebrew prepare for homeshick
+# install homebrew prepare for homesick
 if ! command -v git > /dev/null 2>&1; then
   brew install git
   echo
 fi
 
-# install homeshick
-if ! command -v homeshick > /dev/null 2>&1; then
-    # https://github.com/andsens/homeshick/wiki/Installation
-    git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
+# install homesick
+if ! command -v homesick > /dev/null 2>&1; then
+    # https://github.com/andsens/homesick/wiki/Installation
+    git clone git://github.com/andsens/homesick.git $HOME/.homesick/repos/homesick
     echo
-    source $HOME/.homesick/repos/homeshick/homeshick.sh
+    source $HOME/.homesick/repos/homesick/homesick.sh
 fi
 
 # Using yes command, because question for symlink[y/N]?.
 # Using --skip command, because default option is not skipt when files already exists.
-yes | homeshick clone bannzai/castle --skip
+yes | homesick clone bannzai/castle --skip
 echo
 
 
@@ -40,7 +40,7 @@ brew bundle
 echo
 set -e
 
-homeshick cd castle
+homesick cd castle
 SETUP_SCRIPT_DIR="$PWD/scripts/setup/"
 SCRIPTS=`find "$SETUP_SCRIPT_DIR" -name '*.sh' -type f`
 
