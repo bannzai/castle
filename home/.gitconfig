@@ -36,7 +36,9 @@
 	conflictstyle = diff3
 [commit]
   template = ~/ghq/github.com/bannzai/commit_template/commit_template
-[includeIf "gitdir:~/develop/bannzai/"]
-  path = ~/.gitconfig.bannzai
 [include]
   path = ~/.gitconfig.local
+[includeIf "gitdir:~/develop/bannzai/"]
+  path = ~/.gitconfig.bannzai
+[includeIf "gitdir:~/ghq/github.com/"]
+  path = ~/.gitconfig.bannzai
