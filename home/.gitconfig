@@ -2,6 +2,7 @@
 	excludesfile = ~/.gitignore
   editor = nvim
 	commentchar = auto
+	pager = less -r
 [alias]
 	today = log --since=midnight --oneline --author='hirose yudai' --no-merges
 	current-branch = rev-parse --abbrev-ref HEAD
