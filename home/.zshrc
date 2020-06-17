@@ -118,3 +118,5 @@ autoload -U compinit
 compinit -u
 
 alias soyo='echo -e "　 ∧,,∧\n （=・ω・）\n （,, ｕｕﾉ\n"'
+fpath=(~/.zsh $fpath)
+
