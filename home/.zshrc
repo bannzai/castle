@@ -102,7 +102,7 @@ export PATH="$HOME/usr/bin:$PATH"
 export PATH=$GOPATH/bin:$PATH
 export PATH="$HOME/.local/bin/:$PATH"
 export PATH="$MINT_LINK_PATH:$PATH"
-export PATH="~/ghq/github.com/flutter/flutter/bin:$PATH"
+export PATH="$HOME/ghq/github.com/flutter/flutter/bin:$PATH"
 
 #
 # Functions 
