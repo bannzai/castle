@@ -94,6 +94,11 @@ cask "dash"
 cask "cmd-eikana"
 cask "Alfred"
 cask "karabiner-elements"
+cask "graphql-playground"
+cask "visual-studio-code"
+cask "figma"
+cask "notion"
+cask "zoom"
 
 mas "Xcode", id: 497799835
 mas "Wunderlist", id: 410628904
