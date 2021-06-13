@@ -39,6 +39,8 @@ set +e
 brew bundle
 echo
 set -e
+brew install --HEAD neovim &
+wait $!
 
 homeshick cd castle
 SETUP_SCRIPT_DIR="$PWD/scripts/setup/"

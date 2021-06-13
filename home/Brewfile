@@ -47,7 +47,8 @@ brew "lua@5.1"
 brew "mitmproxy"
 brew "mysql"
 brew "ncurses"
-brew "neovim"
+# VSCode-Neovim required neovim version upto 0.5.0 https://github.com/asvetliakov/vscode-neovim
+# brew "neovim"
 brew "ninja", link: false
 brew "nodenv"
 brew "yarn"
