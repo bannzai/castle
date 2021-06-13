@@ -2,7 +2,6 @@
 set rtp+=~/.fzf
 set incsearch
 set hlsearch
-set expandtab
 set tabstop=2
 set shiftwidth=2
 set noswapfile
@@ -59,6 +58,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " rails
 Plug 'scrooloose/syntastic'
+
+" html
+Plug 'tpope/vim-surround'
 
 call plug#end()
 " } VimPlug 
