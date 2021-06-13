@@ -3,6 +3,7 @@
   editor = nvim
 	commentchar = auto
 	pager = less -r
+  whitespace = trailing-space,space-before-tab
 [alias]
 	today = log --since=midnight --oneline --author='hirose yudai' --no-merges
 	current-branch = rev-parse --abbrev-ref HEAD
@@ -38,7 +39,10 @@
   template = ~/ghq/github.com/bannzai/commit_template/commit_template
 [include]
   path = ~/.gitconfig.local
-[includeIf "gitdir:~/develop/bannzai/"]
-  path = ~/.gitconfig.bannzai
-[includeIf "gitdir:~/ghq/github.com/"]
-  path = ~/.gitconfig.bannzai
+[user]
+	name = bannzai
+	email = kingkong999yhirose@gmail.com
+[init]
+  defaultBranch = main
+[apply]
+  whitespace = fix
