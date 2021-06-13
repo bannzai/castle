@@ -97,6 +97,10 @@ export PATH=$GOPATH/bin:$PATH
 export PATH="$HOME/.local/bin/:$PATH"
 export PATH="$MINT_LINK_PATH:$PATH"
 export PATH="$HOME/ghq/github.com/flutter/flutter/bin:$PATH"
+export PATH="$HOME/ghq/github.com/flutter/flutter/bin:$PATH"
+export ANDROID_SDK=$HOME/Library/Android/sdk
+export PATH=$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH
+export PATH=$HOME/bin/nvim-osx64/bin:$PATH
 
 #
 # Functions 
@@ -120,3 +124,8 @@ if [ -f '/Users/hiroseyuudai/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/hiroseyuudai/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hiroseyuudai/google-cloud-sdk/completion.zsh.inc'; fi
+
+__git_files () { 
+    _wanted files expl 'local files' _files     
+}
+
