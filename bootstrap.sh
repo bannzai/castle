@@ -32,6 +32,7 @@ fi
 # Using --skip command, because default option is not skipt when files already exists.
 yes | homeshick clone bannzai/castle --skip
 echo
+source ~/.zshrc
 
 
 # For already installed applications
