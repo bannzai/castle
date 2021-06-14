@@ -61,7 +61,7 @@ cd ..
 rm -rf fonts
 
 echo 'Create develop/bannzai'
-mkdir ~/develop/bannzai
+mkdir -p ~/develop/bannzai
 cd ~/develop/bannzai
 cat <<EOF > .envrc
 export GIT_AUTHOR_EMAIL="kingkong999yhirose@gmail.com"
@@ -72,7 +72,7 @@ EOF
 direnv allow
 cd -
 
-echo "Let's set login shells. sudo vim /etc/shells \n And write for /usr/local/bin/zsh \n chsh -s /usr/local/bin/zsh"
+echo "Let's set login shells. sudo vim /etc/shells \n And write for $(which zsh) \n chsh -s /usr/local/bin/zsh"
 echo "And you should set zhistory. (If you use Dropbox. Copy and paste to $HOME/ named .zhistory. )"
 echo "Next you should set terminal.app settings for design and default font to use [Source Code Pro Bold for Powerline 12pt]"
 echo "End bootstrap 🎉"
