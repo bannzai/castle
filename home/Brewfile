@@ -102,9 +102,7 @@ cask "notion"
 cask "zoom"
 
 mas "Xcode", id: 497799835
-mas "Wunderlist", id: 410628904
 mas "Slack", id: 803453959
-mas "Skype", id: 909323225
 mas "LINE", id: 539883307
 mas "Keynote", id: 409183694
 
