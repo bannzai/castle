@@ -15,3 +15,5 @@ for rcfile in $PREZTO_DIR/runcoms/^README.md(.N); do
   ln -s $rcfile "$HOME/.${rcfile:t}" 
 done
 echo "end prezto setup"
+
+touch ~/.zshrc.local
