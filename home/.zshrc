@@ -119,13 +119,6 @@ alias soyo='echo -e "　 ∧,,∧\n （=・ω・）\n （,, ｕｕﾉ\n"'
 fpath=(~/.zsh $fpath)
 
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/hiroseyuudai/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hiroseyuudai/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/hiroseyuudai/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hiroseyuudai/google-cloud-sdk/completion.zsh.inc'; fi
-
 __git_files () { 
     _wanted files expl 'local files' _files     
 }
-
