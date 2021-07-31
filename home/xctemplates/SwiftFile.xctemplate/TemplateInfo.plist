@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kind</key>
+	<string>Xcode.IDEFoundation.TextSubstitutionFileTemplateKind</string>
+	<key>Name</key>
+	<string>Swift File</string>
+	<key>Description</key>
+	<string>Default Swift File</string>
+	<key>Summary</key>
+	<string>Use it for empty swift file</string>
+	<key>SortOrder</key>
+	<integer>100</integer>
+	<key>DefaultCompletionName</key>
+	<string>File</string>
+</dict>
+</plist>
