@@ -13,11 +13,11 @@ EOF
 }
 
 run() {
-  sudo networksetup -setwebproxy $SERVICE_NAME localhost 8081
-  sudo networksetup -setsecurewebproxy $SERVICE_NAME localhost 8081
+  sudo networksetup -setwebproxy $SERVICE_NAME localhost 8090
+  sudo networksetup -setsecurewebproxy $SERVICE_NAME localhost 8090
   sudo networksetup -setwebproxystate $SERVICE_NAME on
   sudo networksetup -setsecurewebproxystate $SERVICE_NAME on
-  mitmproxy --anticache -p 8081
+  mitmproxy --anticache -p 8090
 
   sudo networksetup -setwebproxystate $SERVICE_NAME off
   sudo networksetup -setsecurewebproxystate $SERVICE_NAME off
