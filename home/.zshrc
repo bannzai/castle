@@ -27,9 +27,6 @@ SAVEHIST=100000
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Environment
-EDITOR=nvim
-
 #
 # Aliases for login shell.
 #
@@ -69,44 +66,40 @@ alias nvimrc="nvim ~/.config/nvim/init.vim"
 # ShortCuts
 alias 0="cd $HOME/develop/product/"
 alias 1="cd $HOME/ghq/github.com"
-alias 2="hub pr show"
+alias 2="gh pr view -w"
+alias 3="hub browse"
 alias oss="cd $HOME/develop/oss"
 
 # NeoVim
 alias config="nvim $HOME/.config/nvim/init.vim $HOME/.zshrc"
 
-## LLVM
-alias llvm=llvm@7
-export PATH="$PATH:`brew --prefix llvm@7`/bin"
-
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 # eval
 eval "$(rbenv init -)"
+eval "$(pyenv init -)"
 eval "$(hub alias -s)"
 eval "$(direnv hook zsh)"
-eval "$(nodenv init -)"
+PS1='${VENV_BASE:+($VENV_BASE)}'$PS1
 
 # PATH
-export GOPATH=$HOME/go
 export MINT_PATH=$HOME/.mint
 export MINT_LINK_PATH=$HOME/.mint/bin
-
-export PATH="$HOME/usr/local/bin:$PATH"
-export PATH="$HOME/usr/bin:$PATH"
-export PATH=$GOPATH/bin:$PATH
-export PATH="$HOME/.local/bin/:$PATH"
 export PATH="$MINT_LINK_PATH:$PATH"
-export PATH="$HOME/ghq/github.com/flutter/flutter/bin:$PATH"
-export PATH="$HOME/ghq/github.com/flutter/flutter/bin:$PATH"
+
 export ANDROID_SDK=$HOME/Library/Android/sdk
 export PATH=$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH
-export PATH=$HOME/bin/nvim-osx64/bin:$PATH
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+#nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 #
 # Functions 
 #
-
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 # https://github.com/rivo/tview/issues/267#issuecomment-500226870
 export LC_CTYPE="en_US.UTF-8"
@@ -122,3 +115,92 @@ fpath=(~/.zsh $fpath)
 __git_files () { 
     _wanted files expl 'local files' _files     
 }
+
+
+export GITHUB_BASE_BRANCH=main
+export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
+
+# GitHub Copilot for CLI
+# eval "$(github-copilot-cli alias -- "$0")"
+
+# https://zenn.dev/omakazu/scraps/b3a4be96741a22
+alias arm="exec arch -arch arm64e /bin/zsh --login"
+alias x64="exec arch -arch x86_64 /bin/zsh --login"
+
+zstyle ":completion:*:commands" rehash 1
+
+export PATH="$HOME/ghq/github.com/flutter/flutter/bin:$PATH"
+function ghq-fzf() {
+  local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+4 | awk '{print \$9\"/\"\$6\"/\"\$7 \" \" \$10}'")
+  if [ -n "$src" ]; then
+    BUFFER="cd $(ghq root)/$src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N ghq-fzf
+bindkey '^]' ghq-fzf
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/bannzai/.dart-cli-completion/zsh-config.zsh ]] && . /Users/bannzai/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+EDITOR=nvim
+
+export HOMEBREW_PREFIX=$(brew --prefix)
+
+# Typo
+# alias gmc=gcm
+
+export PATH="$HOME/.local/bin:$PATH"
+
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(nodenv init -)"
+
+# formatted pythen date
+alias fpdate='date "+%Y-%m-%d"'
+alias fpdatetime='date "+%Y-%m-%d-%H%M%S"'
+# formatted dot date
+alias fddate='date "+%Y.%m.%d"'
+alias fddatetime='date "+%Y.%m.%d.%H%M%S"'
+
+alias calvar='date "+%Y%m.%d.%H%M%S"'
+
+# 順序はglobal → nodenv init の順序を守る
+export PATH="$HOME/.npm-global/bin:$PATH"
+eval "$(nodenv init -)"
+
+export REACT_EDITOR=cursor
+# ref: https://x.com/_bannzai_/status/1935971028788035822
+# export ENABLE_BACKGROUND_TASKS=1
+
+
+alias rm=gomi
+
+# zsh でキーコマンドを設定できるキーコマンド
+register_keycommand() {
+  zle -N $2
+  bindkey "$1" $2
+}
+
+# worktreeを素早く変更できるzsh関数
+select_worktree() {
+  local worktrees
+  worktrees=$(git worktree list --porcelain | awk '/worktree / {print $2}')
+  if [[ -z "$worktrees" ]]; then
+    echo "No worktrees found."
+    return 1
+  fi
+  local selected
+  selected=$(echo "$worktrees" | fzf)
+  if [[ -n "$selected" ]]; then
+    echo "$selected"
+    cd "$selected"
+  fi
+}
+# Ctrl + j で起動
+register_keycommand "^l" select_worktree
